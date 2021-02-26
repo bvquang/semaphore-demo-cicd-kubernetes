@@ -15,9 +15,9 @@ blocks:
       # See https://docs.semaphoreci.com/article/66-environment-variables-and-secrets
       env_vars:
         - name: GCP_PROJECT_ID
-          value: semaphore-demo-cicd-kubernetes
+          value: semaphore-demo-cicd-gcp
         - name: GCP_PROJECT_DEFAULT_ZONE
-          value: YOUR_GCP_ZONE
+          value: asia-southeast1-c
 
       # Import secret with GCP access key file..
       # For info on creating secrets, see:
@@ -54,11 +54,11 @@ blocks:
       # See https://docs.semaphoreci.com/article/66-environment-variables-and-secrets
       env_vars:
         - name: GCP_PROJECT_ID
-          value: semaphore-demo-cicd-kubernetes
+          value: semaphore-demo-cicd-gcp
         - name: CLUSTER_NAME
           value: semaphore-demo-cicd-kubernetes
         - name: GCP_PROJECT_DEFAULT_ZONE
-          value: YOUR_GCP_ZONE
+          value: asia-southeast1-c
 
       prologue:
         commands:
@@ -102,11 +102,11 @@ blocks:
       # See https://docs.semaphoreci.com/article/66-environment-variables-and-secrets
       env_vars:
         - name: GCP_PROJECT_ID
-          value: semaphore-demo-cicd-kubernetes
+          value: semaphore-demo-cicd-gcp
         - name: CLUSTER_NAME
           value: semaphore-demo-cicd-kubernetes
         - name: GCP_PROJECT_DEFAULT_ZONE
-          value: YOUR_GCP_ZONE
+          value: asia-southeast1-c
 
       prologue:
         commands:
