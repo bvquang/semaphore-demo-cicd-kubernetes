@@ -4,7 +4,6 @@ agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
-
 blocks:
   - name: Push Image
     task:
@@ -12,15 +11,10 @@ blocks:
         - name: gcp-key
       prologue:
         commands:
-          # Authenticate using the file injected from the secret
           - gcloud auth activate-service-account --key-file=.secrets/gcp-key.json
-          # Don't forget -q to silence confirmation prompts
           - gcloud auth configure-docker -q
           - checkout
       jobs:
         - name: Docker build
           commands:
-            # Replace with your GCP Project ID
             - docker build -t semaphore-example .
-            - docker tag semaphore-example gcr.io/semaphore-demo-cicd-gcp/semaphore-example
-            - docker push gcr.io/semaphore-demo-cicd-gcp/semaphore-example
