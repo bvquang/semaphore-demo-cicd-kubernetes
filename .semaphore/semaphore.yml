@@ -1,12 +1,12 @@
-version: "v1.0"
-name: First pipeline
+version: v1.0
+name: Test pipeline
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
 
 blocks:
-  - name: "Push Image"
+  - name: Push Image
     task:
       secrets:
         - name: gcp-key
@@ -21,5 +21,6 @@ blocks:
         - name: Docker build
           commands:
             # Replace with your GCP Project ID
-            - docker build -t "gcr.io/semaphore-demo-cicd-gcp/semaphore-example:${SEMAPHORE_GIT_SHA:0:7}" .
-            - docker push "gcr.io/semaphore-demo-cicd-gcp/semaphore-example:${SEMAPHORE_GIT_SHA:0:7}"
+            - docker build -t semaphore-example .
+            - docker tag semaphore-example gcr.io/semaphore-demo-cicd-gcp/semaphore-example
+            - docker push gcr.io/semaphore-demo-cicd-gcp/semaphore-example
