@@ -17,4 +17,4 @@ blocks:
       jobs:
         - name: Docker build
           commands:
-            - docker build -t semaphore-example .
+            - docker build .
